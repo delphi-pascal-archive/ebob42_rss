@@ -1,0 +1,136 @@
+<XmlTransformation Version="1.0"><Transform Direction="ToXml"><SelectEach from="DATAPACKET\ROWDATA\ROW" dest="\rss"><Select from="@version" dest="@version"/><SelectEach from="channel\ROWchannel" dest="\channel"><Select from="@title" dest="\title"/><Select from="@link" dest="\link"/><Select from="@description" dest="\description"/><Select from="@language" dest="\language"/><Select from="@copyright" dest="\copyright"/><Select from="@managingEditor" dest="\managingEditor"/><Select from="@webMaster" dest="\webMaster"/><Select from="@pubDate" Format_DateTime="ddd, d MMM yyyy hh:mm:ss" dest="\pubDate"/><Select from="@lastBuildDate" Format_DateTime="ddd, d MMM yyyy hh:mm:ss" dest="\lastBuildDate"/><Select from="@generator" dest="\generator"/><Select from="@docs" dest="\docs"/><Select from="@image" dest="\image"/><SelectEach from="item\ROWitem" dest="\item"><Select from="@title" dest="\title"/><Select from="@link" dest="\link"/><Select from="@description" dest="\description"/><Select from="@author" dest="\author"/><Select from="@comments" dest="\comments"/><Select from="@pubDate" Format_DateTime="ddd, d MMM yyyy hh:mm:ss" dest="\pubDate"/></SelectEach></SelectEach></SelectEach></Transform><XmlSchema RootName="rss"><![CDATA[<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="rss" type="rssType"/>
+  <xs:complexType name="rssType">
+    <xs:sequence>
+      <xs:element name="channel" type="channelType" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="version" type="xs:string"/>
+  </xs:complexType>
+  <xs:element name="channel" type="channelType"/>
+  <xs:complexType name="channelType">
+    <xs:sequence>
+      <xs:element name="title" type="titleType"/>
+      <xs:element name="link" type="linkType"/>
+      <xs:element name="description" type="descriptionType"/>
+      <xs:element name="language" type="languageType"/>
+      <xs:element name="copyright" type="copyrightType"/>
+      <xs:element name="managingEditor" type="managingEditorType"/>
+      <xs:element name="webMaster" type="webMasterType"/>
+      <xs:element name="pubDate" type="pubDateType"/>
+      <xs:element name="lastBuildDate" type="lastBuildDateType"/>
+      <xs:element name="generator" type="generatorType"/>
+      <xs:element name="docs" type="docsType"/>
+      <xs:element name="image" type="imageType"/>
+      <xs:element name="item" type="itemType" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="title" type="titleType"/>
+  <xs:simpleType name="titleType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="link" type="linkType"/>
+  <xs:simpleType name="linkType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="description" type="descriptionType"/>
+  <xs:simpleType name="descriptionType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="language" type="languageType"/>
+  <xs:simpleType name="languageType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="copyright" type="copyrightType"/>
+  <xs:simpleType name="copyrightType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="managingEditor" type="managingEditorType"/>
+  <xs:simpleType name="managingEditorType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="webMaster" type="webMasterType"/>
+  <xs:simpleType name="webMasterType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="pubDate" type="pubDateType"/>
+  <xs:simpleType name="pubDateType">
+    <xs:restriction base="xs:timeInstant"/>
+  </xs:simpleType>
+  <xs:element name="lastBuildDate" type="lastBuildDateType"/>
+  <xs:simpleType name="lastBuildDateType">
+    <xs:restriction base="xs:timeInstant"/>
+  </xs:simpleType>
+  <xs:element name="generator" type="generatorType"/>
+  <xs:simpleType name="generatorType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="docs" type="docsType"/>
+  <xs:simpleType name="docsType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="image" type="imageType"/>
+  <xs:simpleType name="imageType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="item" type="itemType"/>
+  <xs:complexType name="itemType">
+    <xs:sequence>
+      <xs:element name="title" type="titleType"/>
+      <xs:element name="link" type="linkType"/>
+      <xs:element name="description" type="descriptionType"/>
+      <xs:element name="author" type="authorType"/>
+      <xs:element name="comments" type="commentsType"/>
+      <xs:element name="pubDate" type="pubDateType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="title" type="titleType"/>
+  <xs:simpleType name="titleType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="link" type="linkType"/>
+  <xs:simpleType name="linkType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="description" type="descriptionType"/>
+  <xs:simpleType name="descriptionType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="author" type="authorType"/>
+  <xs:simpleType name="authorType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="comments" type="commentsType"/>
+  <xs:simpleType name="commentsType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="pubDate" type="pubDateType"/>
+  <xs:simpleType name="pubDateType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+</xs:schema>]]></XmlSchema><CdsSkeleton><![CDATA[<DATAPACKET Version="2.0"><METADATA><FIELDS><FIELD attrname="version" fieldtype="string" WIDTH="3"/><FIELD attrname="channel" fieldtype="nested"><FIELDS><FIELD attrname="title" fieldtype="string" WIDTH="128" required="true"/><FIELD attrname="link" fieldtype="string" WIDTH="128" required="true"/><FIELD attrname="description" fieldtype="string" WIDTH="8192" required="true"/><FIELD attrname="language" fieldtype="string" WIDTH="16"/><FIELD attrname="copyright" fieldtype="string" WIDTH="64"/><FIELD attrname="managingEditor" fieldtype="string" WIDTH="64"/><FIELD attrname="webMaster" fieldtype="string" WIDTH="64"/><FIELD attrname="pubDate" fieldtype="dateTime"/><FIELD attrname="lastBuildDate" fieldtype="dateTime"/><FIELD attrname="generator" fieldtype="string" WIDTH="32"/><FIELD attrname="docs" fieldtype="string" WIDTH="64"/><FIELD attrname="image" fieldtype="string" WIDTH="64"/><FIELD attrname="item" fieldtype="nested"><FIELDS><FIELD attrname="title" fieldtype="string" WIDTH="128" required="true"/><FIELD attrname="link" fieldtype="string" WIDTH="128" required="true"/><FIELD attrname="description" fieldtype="string" WIDTH="8192" required="true"/><FIELD attrname="author" fieldtype="string" WIDTH="64"/><FIELD attrname="comments" fieldtype="string" WIDTH="128"/><FIELD attrname="pubDate" fieldtype="dateTime"/></FIELDS><PARAMS PRIMARY_KEY="1"/></FIELD></FIELDS><PARAMS PRIMARY_KEY="1"/></FIELD></FIELDS><PARAMS/></METADATA><ROWDATA/><METADATA><FIELDS><FIELD attrname="version" fieldtype="string" WIDTH="3"/><FIELD attrname="channel" fieldtype="nested"><FIELDS><FIELD attrname="title" fieldtype="string" WIDTH="128" required="true"/><FIELD attrname="link" fieldtype="string" WIDTH="128" required="true"/><FIELD attrname="description" fieldtype="string" WIDTH="8192" required="true"/><FIELD attrname="language" fieldtype="string" WIDTH="16"/><FIELD attrname="copyright" fieldtype="string" WIDTH="64"/><FIELD attrname="managingEditor" fieldtype="string" WIDTH="64"/><FIELD attrname="webMaster" fieldtype="string" WIDTH="64"/><FIELD attrname="pubDate" fieldtype="dateTime"/><FIELD attrname="lastBuildDate" fieldtype="dateTime"/><FIELD attrname="generator" fieldtype="string" WIDTH="32"/><FIELD attrname="docs" fieldtype="string" WIDTH="64"/><FIELD attrname="image" fieldtype="string" WIDTH="64"/><FIELD attrname="item" fieldtype="nested"><FIELDS><FIELD attrname="title" fieldtype="string" WIDTH="128" required="true"/><FIELD attrname="link" fieldtype="string" WIDTH="128" required="true"/><FIELD attrname="description" fieldtype="string" WIDTH="8192" required="true"/><FIELD attrname="author" fieldtype="string" WIDTH="64"/><FIELD attrname="comments" fieldtype="string" WIDTH="128"/><FIELD attrname="pubDate" fieldtype="dateTime"/></FIELDS><PARAMS PRIMARY_KEY="1"/></FIELD></FIELDS><PARAMS PRIMARY_KEY="1"/></FIELD></FIELDS><PARAMS/></METADATA><ROWDATA/></DATAPACKET>
+]]></CdsSkeleton><XslTransform/><Skeleton><![CDATA[<?xml version="1.0"?>
+<rss version="2.0">
+	<channel>
+		<title></title>
+		<link></link>
+		<description></description>
+		<language></language>
+		<copyright></copyright>
+		<managingEditor></managingEditor>
+		<webMaster></webMaster>
+		<pubDate></pubDate>
+		<lastBuildDate></lastBuildDate>
+		<generator></generator>
+		<docs></docs>
+		<image></image>
+		<item>
+			<title></title>
+			<link></link>
+			<description></description>
+			<author></author>
+			<comments></comments>
+			<pubDate></pubDate>
+		</item>
+	</channel>
+</rss>
+]]></Skeleton></XmlTransformation>
